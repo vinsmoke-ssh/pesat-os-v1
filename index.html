@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIPESAT | Sistem Informasi Pesan Cepat</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <div class="header-brand">
+          <!-- ICON LOGO -->
+          <div class="brand-logo" aria-hidden="true">
+            <span>SP</span>
+          </div>
+          <!-- END ICON LOGO -->
+          <div class="brand-text">
+            <h1>SIPESAT</h1>
+            <p class="brand-subtitle">Sistem Informasi Pesan Cepat</p>
+          </div>
+        </div>
+
+        <!-- BADGE- BADGE INFO SISTEM DI SEBELAH KANAN -->
+        <div class="header-meta">
+          <span class="badge badge-version">v1.0.0</span>
+          <span class="badge badge-status">
+            <span class="status-dot" aria-hidden="true"></span>
+            Sistem Aktif
+          </span>
+          <span class="badge badge-mode">Internal Use Only</span>
+        </div>
+        <!-- END BADGE- BADGE INFO SISTEM DI SEBELAH KANAN -->
+      </header>
+
+      <!-- MAIN WORKSPACE -->
+      <main class="workspace">
+        <!-- AREA 1: STEP WIZARD FORM -->
+        <section class="wizard-panel">
+          <!-- PROGRESS INDICATOR -->
+          <div class="wizard-progress">
+            <div class="step-item active" id="stepIndicator1">
+              <div class="step-number">1</div>
+              <div class="step-label">Pilih Template</div>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item" id="stepIndicator2">
+              <div class="step-number">2</div>
+              <div class="step-label">Isi Data</div>
+            </div>
+          </div>
+          <!-- END PROGRESS INDICATOR -->
+
+          <!-- KONTEN FORM WIZARD -->
+          <div class="wizard-content-card">
+            <!-- LANGKAH 1: PEMILIHAN TEMPLATE -->
+            <div class="wizard-step-content active" id="stepContent1">
+              <div class="step-header-desc">
+                <h3>Langkah 1: Pilih Template Pesan</h3>
+                <p>
+                  Silakan pilih jenis template pesan operasional yang ingin Anda
+                  buat.
+                </p>
+              </div>
+
+              <div class="field-group">
+                <label for="templateSelect">Template Operasional</label>
+                <div class="select-wrapper">
+                  <select id="templateSelect">
+                    <option value="">-- Pilih Template --</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- END LANGKAH 1: PEMILIHAN TEMPLATE -->
+
+            <!-- LANGKAH 2: PENGISIAN DATA DINAMIS -->
+            <div class="wizard-step-content" id="stepContent2">
+              <div class="step-header-desc">
+                <h3>Langkah 2: Lengkapi Data Input</h3>
+                <p>
+                  Isi parameter di bawah ini untuk memformat isi pesan secara
+                  otomatis.
+                </p>
+              </div>
+
+              <!-- CONTAINER FORM DINAMIS YANG DIGENERATE OLEH FILE JS -->
+              <div id="formContainer"></div>
+            </div>
+            <!-- END LANGKAH 2: PENGISIAN DATA DINAMIS -->
+
+            <!-- WIZARD FOOTER NAVIGATION -->
+            <div class="wizard-navigation">
+              <button
+                type="button"
+                id="prevBtn"
+                class="btn btn-secondary"
+                disabled
+              >
+                Kembali
+              </button>
+              <button type="button" id="nextBtn" class="btn btn-primary">
+                Lanjut
+              </button>
+            </div>
+            <!-- END WIZARD FOOTER NAVIGATION -->
+          </div>
+          <!-- END KONTEN FORM WIZARD -->
+
+          <!-- PANDUAN PENGGUNAAN SINGKAT -->
+          <div class="guide-box">
+            <h4>💡 Panduan Singkat</h4>
+            <p>
+              Pilih template, lengkapi kolom data input yang muncul, periksa
+              hasil di panel preview kanan, lalu klik
+              <strong>Salin Pesan</strong> untuk menyalin teks ke clipboard
+              Anda.
+            </p>
+          </div>
+          <!-- END PANDUAN PENGGUNAAN SINGKAT -->
+        </section>
+        <!-- END AREA 1: STEP WIZARD FORM -->
+
+        <!-- AREA 2: LIVE PREVIEW PANEL -->
+        <section class="preview-panel">
+          <div class="preview-sticky-card">
+            <div class="preview-header">
+              <div class="preview-title-group">
+                <span class="preview-icon">👁️</span>
+                <h3>Preview Pesan</h3>
+              </div>
+              <button id="copyBtn" class="btn btn-success">
+                <span>📋</span> Salin Pesan
+              </button>
+            </div>
+
+            <!-- Wadah hasil real-time text -->
+            <div id="resultMessage" class="message-preview-box"></div>
+          </div>
+        </section>
+        <!-- END AREA 2: PREVIEW PANEL -->
+      </main>
+      <!-- END MAIN WORKSPACE -->
+
+      <!-- FOOTER -->
+      <footer class="app-footer">
+        <div>SIPESAT v1.0.0 &bull; Internal Operational Tool</div>
+        <div>&copy; 2026 KSU POSTRA. All rights reserved.</div>
+      </footer>
+    </div>
+    <!-- END FOOTER -->
+
+    <!-- SCRIPTS UTAMA -->
+    <script src="js/templates.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- TOAST NOTIFICATION POPUP CUSTOM -->
+    <div id="toastNotification" class="toast">📋 Pesan berhasil disalin!</div>
+  </body>
+</html>

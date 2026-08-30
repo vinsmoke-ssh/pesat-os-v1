@@ -1,0 +1,47 @@
+{
+  "name": "pesat-os-v1",
+  "version": "1.0.0",
+  "description": "Alat membuat pesan operasional dari template lalu menyalinnya (dengan format tebal) ke WhatsApp, email, atau aplikasi lain. HTML/CSS/JavaScript murni, tanpa framework dan tanpa build.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "vinsmoke-ssh",
+  "homepage": "https://github.com/vinsmoke-ssh/pesat-os-v1#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vinsmoke-ssh/pesat-os-v1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vinsmoke-ssh/pesat-os-v1/issues"
+  },
+  "keywords": [
+    "template",
+    "pesan",
+    "message-builder",
+    "clipboard",
+    "vanilla-js",
+    "es-modules",
+    "no-build",
+    "internal-tool"
+  ],
+  "scripts": {
+    "start": "npm run serve",
+    "serve": "serve .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "serve": "^14.2.3"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": false,
+    "trailingComma": "all"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

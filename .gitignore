@@ -9,3 +9,11 @@
 # Pengecualian eksplisit: file contoh tetap dilacak Git sebagai acuan publik.
 # (Baris ini sebagai penegas; pola di atas memang tidak menyertakan file ini.)
 !/js/templates_example.js
+
+# ==========================================================================
+# DEV TOOLS
+# ==========================================================================
+/node_modules/
+npm-debug.log*
+.DS_Store
+Thumbs.db

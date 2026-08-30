@@ -1,23 +1,35 @@
 /**
  * ==========================================================================
- * SIPESAT - APP INITIALIZER (MAIN ENTRY POINT)
+ * app.js — Entry point (titik masuk aplikasi)
+ * ==========================================================================
+ * Tidak berisi logika. Tugasnya hanya menghubungkan aksi pengguna
+ * (pilih, klik) ke fungsi yang sudah disiapkan tiap modul.
+ *
+ * Dimuat di index.html sebagai module:
+ *   <script type="module" src="js/app.js"></script>
  * ==========================================================================
  */
 
-// Inisialisasi dropdown di awal buka aplikasi
-renderTemplateDropdown();
+import { dom } from "./dom.js";
+import { renderTemplateDropdown, renderForm } from "./render.js";
+import { goToStep, validateAndProceed } from "./wizard.js";
+import { copyMessage } from "./clipboard.js";
 
-// Deteksi perubahan template
-templateSelect.addEventListener("change", (event) => {
-  renderForm(event.target.value);
-});
+function init() {
+  // Isi dropdown saat aplikasi pertama dibuka.
+  renderTemplateDropdown();
 
-// Deteksi klik Lanjut / Selesai
-nextBtn.addEventListener("click", () => {
-  validateAndProceed();
-});
+  // Pilih template -> bangun ulang form.
+  dom.templateSelect.addEventListener("change", (event) => {
+    renderForm(event.target.value);
+  });
 
-// Deteksi klik Kembali
-prevBtn.addEventListener("click", () => {
-  goToStep(1);
-});
+  // Navigasi wizard.
+  dom.nextBtn.addEventListener("click", validateAndProceed);
+  dom.prevBtn.addEventListener("click", () => goToStep(1));
+
+  // Salin pesan.
+  dom.copyBtn.addEventListener("click", copyMessage);
+}
+
+init();

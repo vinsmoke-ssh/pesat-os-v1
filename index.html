@@ -16,155 +16,309 @@
   </head>
 
   <body>
-    <div class="app-container">
-      <header class="app-header">
-        <div class="header-brand">
-          <!-- ICON LOGO -->
-          <div class="brand-logo" aria-hidden="true">
-            <span>SP</span>
-          </div>
-          <!-- END ICON LOGO -->
-          <div class="brand-text">
-            <h1>SIPESAT</h1>
-            <p class="brand-subtitle">Sistem Informasi Pesan Cepat</p>
-          </div>
+    <!-- ====================================================================
+         SPRITE IKON SVG (stroke, currentColor) — dipakai via <use href="#..">
+         Ganti / tambah <symbol> di sini untuk mengubah set ikon.
+    ===================================================================== -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      style="display: none"
+      aria-hidden="true"
+    >
+      <symbol
+        id="icon-send"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m22 2-7 20-4-9-9-4Z" />
+        <path d="M22 2 11 13" />
+      </symbol>
+      <symbol
+        id="icon-mail"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect width="20" height="16" x="2" y="4" rx="2" />
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+      </symbol>
+      <symbol
+        id="icon-message"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+        />
+      </symbol>
+      <symbol
+        id="icon-eye"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+        <circle cx="12" cy="12" r="3" />
+      </symbol>
+      <symbol
+        id="icon-copy"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+      </symbol>
+      <symbol
+        id="icon-info"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 16v-4" />
+        <path d="M12 8h.01" />
+      </symbol>
+      <symbol
+        id="icon-file-text"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+        <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+        <path d="M16 13H8" />
+        <path d="M16 17H8" />
+        <path d="M10 9H8" />
+      </symbol>
+      <symbol
+        id="icon-list-check"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+        <path
+          d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+        />
+        <path d="m9 14 2 2 4-4" />
+      </symbol>
+    </svg>
+
+    <div class="app-shell">
+      <!-- ================================================================
+           TOPBAR
+      ================================================================= -->
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand__mark" data-brand="icon" aria-hidden="true">
+            <svg class="icon"><use href="#icon-send" /></svg>
+          </span>
+          <span class="brand__text">
+            <span class="brand__name" data-brand="name">SIPESAT</span>
+            <span class="brand__tagline" data-brand="tagline"
+              >Sistem Informasi Pesan Cepat</span
+            >
+          </span>
         </div>
 
-        <!-- BADGE- BADGE INFO SISTEM DI SEBELAH KANAN -->
-        <div class="header-meta">
-          <span class="badge badge-version">v1.0.0</span>
-          <span class="badge badge-status">
-            <span class="status-dot" aria-hidden="true"></span>
-            Sistem Aktif
+        <div class="topbar__meta">
+          <span class="chip chip--muted" data-brand="version">v1.0.0</span>
+          <span class="chip chip--status">
+            <span class="chip__dot" aria-hidden="true"></span>
+            <span data-brand="status">Sistem Aktif</span>
           </span>
-          <span class="badge badge-mode">Internal Use Only</span>
+          <span class="chip chip--outline" data-brand="mode"
+            >Internal Use Only</span
+          >
         </div>
-        <!-- END BADGE- BADGE INFO SISTEM DI SEBELAH KANAN -->
       </header>
 
-      <!-- MAIN WORKSPACE -->
+      <!-- ================================================================
+           WORKSPACE (Desktop: 2 kolom — builder + preview sticky)
+      ================================================================= -->
       <main class="workspace">
-        <!-- AREA 1: STEP WIZARD FORM -->
-        <section class="wizard-panel">
-          <!-- PROGRESS INDICATOR -->
-          <div class="wizard-progress">
-            <div class="step-item active" id="stepIndicator1">
-              <div class="step-number">1</div>
-              <div class="step-label">Pilih Template</div>
-            </div>
-            <div class="step-line"></div>
-            <div class="step-item" id="stepIndicator2">
-              <div class="step-number">2</div>
-              <div class="step-label">Isi Data</div>
-            </div>
+        <!-- ---------- KOLOM KIRI: BUILDER ---------- -->
+        <section class="panel">
+          <div class="panel__head">
+            <h2 class="panel__title">Buat Pesan</h2>
+            <p class="panel__desc">
+              Pilih template operasional, lengkapi datanya, lalu salin hasilnya.
+            </p>
           </div>
-          <!-- END PROGRESS INDICATOR -->
 
-          <!-- KONTEN FORM WIZARD -->
-          <div class="wizard-content-card">
-            <!-- LANGKAH 1: PEMILIHAN TEMPLATE -->
+          <!-- Stepper -->
+          <ol class="stepper">
+            <li class="stepper__item active" id="stepIndicator1">
+              <span class="stepper__badge">1</span>
+              <span class="stepper__label">Pilih Template</span>
+            </li>
+            <li class="stepper__bar" aria-hidden="true"></li>
+            <li class="stepper__item" id="stepIndicator2">
+              <span class="stepper__badge">2</span>
+              <span class="stepper__label">Isi Data</span>
+            </li>
+          </ol>
+
+          <!-- Kartu langkah -->
+          <div class="card">
+            <!-- LANGKAH 1 -->
             <div class="wizard-step-content active" id="stepContent1">
-              <div class="step-header-desc">
-                <h3>Langkah 1: Pilih Template Pesan</h3>
-                <p>
-                  Silakan pilih jenis template pesan operasional yang ingin Anda
-                  buat.
-                </p>
+              <div class="step-intro">
+                <span class="step-intro__icon" aria-hidden="true">
+                  <svg class="icon"><use href="#icon-file-text" /></svg>
+                </span>
+                <div>
+                  <h3 class="step-intro__title">Langkah 1 — Pilih Template</h3>
+                  <p class="step-intro__desc">
+                    Tentukan jenis pesan operasional yang ingin dibuat.
+                  </p>
+                </div>
               </div>
 
               <div class="field-group">
                 <label for="templateSelect">Template Operasional</label>
                 <div class="select-wrapper">
                   <select id="templateSelect">
-                    <option value="">-- Pilih Template --</option>
+                    <option value="">— Pilih Template —</option>
                   </select>
                 </div>
               </div>
             </div>
-            <!-- END LANGKAH 1: PEMILIHAN TEMPLATE -->
 
-            <!-- LANGKAH 2: PENGISIAN DATA DINAMIS -->
+            <!-- LANGKAH 2 -->
             <div class="wizard-step-content" id="stepContent2">
-              <div class="step-header-desc">
-                <h3>Langkah 2: Lengkapi Data Input</h3>
-                <p>
-                  Isi parameter di bawah ini untuk memformat isi pesan secara
-                  otomatis.
-                </p>
+              <div class="step-intro">
+                <span class="step-intro__icon" aria-hidden="true">
+                  <svg class="icon"><use href="#icon-list-check" /></svg>
+                </span>
+                <div>
+                  <h3 class="step-intro__title">Langkah 2 — Lengkapi Data</h3>
+                  <p class="step-intro__desc">
+                    Isi parameter berikut untuk memformat pesan secara otomatis.
+                  </p>
+                </div>
               </div>
 
-              <!-- CONTAINER FORM DINAMIS YANG DIGENERATE OLEH FILE JS -->
+              <!-- Form dinamis dibuat oleh js/render.js -->
               <div id="formContainer"></div>
             </div>
-            <!-- END LANGKAH 2: PENGISIAN DATA DINAMIS -->
 
-            <!-- WIZARD FOOTER NAVIGATION -->
-            <div class="wizard-navigation">
+            <!-- Navigasi -->
+            <div class="wizard-nav">
               <button
                 type="button"
                 id="prevBtn"
-                class="btn btn-secondary"
+                class="btn btn--ghost btn--icon-left"
                 disabled
               >
                 Kembali
               </button>
-              <button type="button" id="nextBtn" class="btn btn-primary">
+              <button
+                type="button"
+                id="nextBtn"
+                class="btn btn--primary btn--icon-right"
+              >
                 Lanjut
               </button>
             </div>
-            <!-- END WIZARD FOOTER NAVIGATION -->
           </div>
-          <!-- END KONTEN FORM WIZARD -->
 
-          <!-- PANDUAN PENGGUNAAN SINGKAT -->
-          <div class="guide-box">
-            <h4>💡 Panduan Singkat</h4>
+          <!-- Panduan -->
+          <aside class="notice">
+            <span class="notice__icon" aria-hidden="true">
+              <svg class="icon"><use href="#icon-info" /></svg>
+            </span>
             <p>
-              Pilih template, lengkapi kolom data input yang muncul, periksa
-              hasil di panel preview kanan, lalu klik
-              <strong>Salin Pesan</strong> untuk menyalin teks ke clipboard
-              Anda.
+              <strong>Panduan singkat.</strong> Pilih template, lengkapi kolom
+              yang muncul, periksa panel pratinjau di kanan, lalu klik
+              <strong>Salin Pesan</strong>.
             </p>
-          </div>
-          <!-- END PANDUAN PENGGUNAAN SINGKAT -->
+          </aside>
         </section>
-        <!-- END AREA 1: STEP WIZARD FORM -->
 
-        <!-- AREA 2: LIVE PREVIEW PANEL -->
-        <section class="preview-panel">
-          <div class="preview-sticky-card">
-            <div class="preview-header">
-              <div class="preview-title-group">
-                <span class="preview-icon">👁️</span>
-                <h3>Preview Pesan</h3>
-              </div>
-              <button id="copyBtn" class="btn btn-success">
-                <span>📋</span> Salin Pesan
+        <!-- ---------- KOLOM KANAN: PREVIEW ---------- -->
+        <section class="panel panel--preview">
+          <div class="preview">
+            <div class="preview__head">
+              <span class="preview__title">
+                <svg class="icon"><use href="#icon-eye" /></svg>
+                Pratinjau Pesan
+              </span>
+              <button
+                id="copyBtn"
+                class="btn btn--success btn--sm"
+                type="button"
+              >
+                <svg class="icon"><use href="#icon-copy" /></svg>
+                Salin Pesan
               </button>
             </div>
 
-            <!-- Wadah hasil real-time text -->
-            <div id="resultMessage" class="message-preview-box"></div>
+            <div
+              id="resultMessage"
+              class="preview__body"
+              aria-live="polite"
+            ></div>
+
+            <p class="preview__note">
+              <svg class="icon"><use href="#icon-info" /></svg>
+              Format tebal ikut tersalin ke WhatsApp &amp; email.
+            </p>
           </div>
         </section>
-        <!-- END AREA 2: PREVIEW PANEL -->
       </main>
-      <!-- END MAIN WORKSPACE -->
 
-      <!-- FOOTER -->
-      <footer class="app-footer">
-        <div>SIPESAT v1.0.0 &bull; Internal Operational Tool</div>
-        <div>&copy; 2026 KSU POSTRA. All rights reserved.</div>
+      <!-- ================================================================
+           FOOTER
+      ================================================================= -->
+      <footer class="app-foot">
+        <span data-brand="footer-left"
+          >SIPESAT v1.0.0 · Internal Operational Tool</span
+        >
+        <span data-brand="footer-right"
+          >© 2026 KSU POSTRA. All rights reserved.</span
+        >
       </footer>
     </div>
-    <!-- END FOOTER -->
 
-    <!-- SCRIPTS UTAMA -->
-    <script src="js/templates.js"></script>
-    <script src="js/ui.js"></script>
-    <script src="js/app.js"></script>
+    <!-- Toast: teks diisi oleh js/toast.js (ikon lewat CSS ::before) -->
+    <div
+      id="toastNotification"
+      class="toast"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
 
-    <!-- TOAST NOTIFICATION POPUP CUSTOM -->
-    <div id="toastNotification" class="toast">📋 Pesan berhasil disalin!</div>
+    <!-- SCRIPTS (ES Modules) -->
+    <script type="module" src="js/branding.js"></script>
+    <script type="module" src="js/app.js"></script>
   </body>
 </html>

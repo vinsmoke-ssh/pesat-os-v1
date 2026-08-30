@@ -1,0 +1,11 @@
+# ==========================================================================
+# DATA TEMPLATE LOKAL
+# --------------------------------------------------------------------------
+# js/templates.js adalah salinan kerja yang berisi penyesuaian internal.
+# File ini TIDAK boleh ikut ter-commit.
+# ==========================================================================
+/js/templates.js
+
+# Pengecualian eksplisit: file contoh tetap dilacak Git sebagai acuan publik.
+# (Baris ini sebagai penegas; pola di atas memang tidak menyertakan file ini.)
+!/js/templates_example.js
